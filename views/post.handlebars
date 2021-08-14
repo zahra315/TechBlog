@@ -1,29 +1,45 @@
-<section>
-  <a href="/dashboard" class="is-pulled-right"> &larr; back to dashboard</a>
-  <h2 class="title">create new blog post</h2><hr />
+<section class = "card">
+<div class="row mb-4 project">
+  <div class="col-md-5">
+    <div class="card header">
+    <h2>
+      <a href="/post/{{id}}">{{title}}</a>
+    </h2>
+    </div>
+    <p>{{content}}</p>
 
-  <form class="new-post-form">
-    <div>
-      <label for="post-title">title:</label>
-      <input
-        class="input"
-        type="text"
-        id="post-title"
-        name="post-title"
-        placeholder="insert blog title here"
-      />
-    </div>
-    <div>
-      <label for="post-content">content:</label>
-      <input
-        class="textarea is-large"
-        id="post-content"
-        name="post-content"
-        placeholder="insert blog content here"
-      />
-    </div>
-    <button type="submit" class="button is-primary is-pulled-right">create post</button>
-  </form>
+    <p>Posted by {{user.username}} on {{format_date date_created}}</p>
+</div>
 </section>
+{{#each comments as |comment| }}
+<section class = "card">
+<div class="row mb-4 project">
+  <div class="col-md-5">
+    <div class="card header">
+    <h2>
+      Comment
+    </h2>
+    </div>
+    <p>{{comment.body}}</p>
 
-<script src="/javascript/add-post.js"></script>
+    <p>Posted by {{comment.user.username}} on {{format_date comment.date_created}}</p>
+</div>
+</section>
+{{/each}}
+
+<section class = "card">
+<div class="row mb-4 project">
+  <div class="col-md-5">
+    <div class="card header">
+    <h2>
+      Add a comment
+    </h2>
+    </div>
+    <form class="create-comment">
+        <label for = "comment">Comment: </label>
+        <textarea id="comment" name="comment" rows="4" cols="50"></textarea>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+</section>
+<script src="/js/comment.js"></script>

@@ -1,40 +1,44 @@
-<!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Technically Speaking</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
-  <link rel="stylesheet" href="/stylesheets/style.css">
-  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Tech Blog</title>
+    <link rel="stylesheet" href="/css/jass.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
 
-  <div class="wrapper">
-    <header>
-        <nav class="navbar mt-2">
-            {{#if logged_in}}
-            <a href="/" class="navbar-item is-hoverable pt-1">homepage</a>
-            <a href="/dashboard" class="navbar-item is-hoverable pt-1">dashboard</a>
-            <a href="/dashboard/create/" class="navbar-item is-hoverable pt-1 mr-4">create post</a>
-            <button id="logout" class="button is-danger">logout</button>
-            {{else}}
-            <a href="/" class="navbar-item is-hoverable pt-1">homepage</a>
-            <a href="/login" class="button is-primary">login</a>
-            {{/if}}
+  <body>
+    <div class="flex-column justify-space-around">
+      <header class="display-flex justify-space-between align-center p-2">
+        <h1>
+          <a href="/">The Tech Blog</a>
+        </h1>
+        <nav class="nav">
+          <!-- Conditionally render login or logout links -->
+          <a class="nav-item" aria-current="page" href="/">Home</a>
+          <a class="nav-item" href="/dashboard">Dashboard</a>
+          {{#if logged_in}}
+            <a class="nav-item" id="logout" href="#">Logout</a>
+          {{else}}
+            <a class="nav-item" href="/login">Login</a>
+          {{/if}}
+
         </nav>
-        <h1 class="has-text-black px-3 py-3 has-text-weight-bold">Tech Blog</h1>
-    </header>
+      </header>
+      <main class="container container-fluid mt-5">
+        <!-- Render the sub layout -->
+        {{{body}}}
+      </main>
+      <footer>
 
-    <main>
-            {{{ body }}}
-    </main>
+      </footer>
+    </div>
 
-  </div>
-
-{{#if logged_in}}
-<script src="/javascript/logout.js"></script>
-{{/if}}
-</body>
+    <!-- Render script for logged in users only -->
+    {{#if logged_in}}
+      <script src="/js/logout.js"></script>
+    {{/if}}
+  </body>
 
 </html>
