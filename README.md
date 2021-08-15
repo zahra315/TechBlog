@@ -21,7 +21,7 @@ Clone the repo to your local machine an ensure inquirer is installed.
 
 ## Usage:
 
-​In order to use this application, visit the [Tech Blog (Heroku App)]()
+​In order to use this application, visit the [Tech Blog (Heroku App)](https://pure-garden-79104.herokuapp.com/)
 
 ## Contact:
 
