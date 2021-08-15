@@ -13,6 +13,7 @@ const editPostHandler = async (event) => {
       headers: { "Content-Type": "application/json" },
     });
     if (response.ok) {
+      // Redirect to dashboard after successful creation of post
       document.location.replace("/dashboard");
     } else {
       alert(response.statusText);
@@ -27,6 +28,7 @@ const deletePostHandler = async (event) => {
     method: "DELETE",
   });
   if (response.ok) {
+    // Redirect to dashboard after successful creation of post
     document.location.replace("/dashboard");
   } else {
     alert(response.statusText);

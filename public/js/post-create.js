@@ -11,6 +11,7 @@ const createPostHandler = async (event) => {
       headers: { "Content-Type": "application/json" },
     });
     if (response.ok) {
+      // Redirect to dashboard after successful creation of post
       document.location.replace("/dashboard");
     } else {
       alert(response.statusText);

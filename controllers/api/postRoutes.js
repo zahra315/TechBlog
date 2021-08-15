@@ -30,6 +30,7 @@ router.get("/:id", withAuth, async (req, res) => {
 });
 
 router.put("/:id", withAuth, async (req, res) => {
+  // update a post by its `id` value
   try {
     const postData = await Post.update(req.body, {
       where: {
